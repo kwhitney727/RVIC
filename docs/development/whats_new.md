@@ -27,3 +27,6 @@ This release contains a number of bug and compatibility fixes.
 - Fixed bug that caused `REMAP=False` to fail ([GH60](https://github.com/UW-Hydro/RVIC/pull/60)).
 - Improvements were made to the `SEARCH_FOR_CHANNEL` option in `parameters`.
 - Fixed bug where last timestep of history output was not populated ([GH71](https://github.com/UW-Hydro/RVIC/pull/71)).
+- `subset_length` cast as an int since it is used to initialize `out_uh` array in `param_file.py`.
+- ValueError raised if `subset_length` is not a multiple of 2 before passing `subset_length` to `subset` function in `param_file.py`, since +/- `subset_length` / 2 is used to define `d_left` and `d_right`, which are in turn used as array indices.
+
